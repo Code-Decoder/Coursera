@@ -1,0 +1,20 @@
+import json
+import urllib.request, urllib.parse, urllib.error
+total = 0
+
+url = input('Enter URL: ')
+data = urllib.request.urlopen(url).read().decode()
+
+info = json.loads(data)
+number = info["comments"] 
+for i in number: 
+    needed = i.get('count') 
+    total = total + int(needed) 
+print(total)
+
+
+
+--------------------------------------------
+Enter URL: http://py4e-data.dr-chuck.net/comments_933820.json
+Sum 2470
+--------------------------------------------
